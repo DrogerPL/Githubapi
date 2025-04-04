@@ -29,7 +29,7 @@ public class GithubService {
                     .body(GithubRepository[].class);
 
             if (repositories == null || repositories.length == 0) {
-                throw new GithubUserNotFoundException(username); // Rzucenie wyjątku, gdy brak repozytoriów
+                throw new GithubUserNotFoundException(username);
             }
 
             return List.of(repositories).stream()
@@ -42,7 +42,7 @@ public class GithubService {
                     ))
                     .toList();
         } catch (HttpClientErrorException.NotFound e) {
-            throw new GithubUserNotFoundException(username);  // Rzucenie wyjątku, jeśli użytkownik nie istnieje
+            throw new GithubUserNotFoundException(username);
         }
     }
 

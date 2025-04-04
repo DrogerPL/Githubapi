@@ -25,7 +25,6 @@ public class GithubController {
             List<GithubRepository> repositories = githubService.getNonForkRepositories(username);
             return ResponseEntity.ok(repositories);
         } catch (GithubUserNotFoundException e) {
-            // Jeśli użytkownik nie istnieje, zwróć 404 bez ciała odpowiedzi
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
